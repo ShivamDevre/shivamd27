@@ -1,0 +1,339 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Shivam — Professional Portfolio</title>
+  <meta name="description" content="Shivam Subhash Devre — B.E. (Electrical). Portfolio: education, projects, skills, operational experience." />
+
+  <style>
+    /* Dark Blue Neon Theme */
+    :root{
+      --bg:#0b1220;            /* deep navy */
+      --panel:#0f1724;         /* card background */
+      --muted:#9aa6b2;         /* secondary text */
+      --accent:#58a6ff;        /* neon blue */
+      --accent-2:#22d3ee;      /* cyan for small accents */
+      --glow: 0 10px 40px rgba(88,166,255,0.08);
+      --radius:14px;
+      --maxw:1100px;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0; font-family: Inter, system-ui, "Segoe UI", Roboto, Arial;
+      background: radial-gradient(1200px 600px at 10% 10%, rgba(34,211,238,0.06), transparent 6%),
+                  radial-gradient(800px 400px at 90% 80%, rgba(88,166,255,0.04), transparent 8%),
+                  var(--bg);
+      color:#e6eef6;
+      -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
+      padding:28px 12px;
+    }
+
+    .wrap{max-width:var(--maxw);margin:0 auto}
+
+    /* Top nav */
+    .nav{
+      display:flex;gap:10px;align-items:center;justify-content:center;flex-wrap:wrap;
+      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      padding:12px;border-radius:calc(var(--radius) + 4px);
+      box-shadow: var(--glow);
+      border:1px solid rgba(255,255,255,0.03);
+      margin-bottom:28px;
+      backdrop-filter: blur(6px);
+    }
+    .nav a{
+      padding:10px 14px;border-radius:10px;text-decoration:none;font-weight:700;
+      color:var(--accent); background:rgba(12,18,30,0.45);
+      border:1px solid rgba(88,166,255,0.08);
+      transition: all .18s ease;
+      box-shadow: 0 4px 18px rgba(11,42,82,0.18);
+    }
+    .nav a.primary{
+      background: linear-gradient(90deg, var(--accent), var(--accent-2));
+      color:#051122;
+      border: none;
+      box-shadow: 0 6px 30px rgba(34,211,238,0.12), 0 2px 8px rgba(2,6,23,0.6);
+    }
+    .nav a:hover{ transform: translateY(-3px); filter:brightness(1.05) }
+
+    /* Hero */
+    .hero{
+      text-align:center;padding:48px 18px;border-radius:18px;margin-bottom:22px;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.00)),
+        linear-gradient(120deg, rgba(88,166,255,0.02), rgba(34,211,238,0.01));
+      border:1px solid rgba(255,255,255,0.02);
+      box-shadow: 0 20px 60px rgba(3,9,23,0.55);
+    }
+    .hero h1{ margin:0;font-size:34px;color:var(--accent); letter-spacing:0.6px }
+    .hero p{ color:var(--muted); max-width:820px; margin:12px auto; font-size:15px }
+
+    /* cards */
+    .grid{display:grid;grid-template-columns:1fr;gap:18px}
+    @media(min-width:880px){ .grid{grid-template-columns: 1fr 1fr} }
+
+    .card{
+      background: linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.00));
+      border-radius:var(--radius); padding:20px; color:#dbeafc;
+      border:1px solid rgba(255,255,255,0.02);
+      box-shadow: 0 12px 40px rgba(3,9,23,0.6);
+    }
+
+    .media{display:flex;gap:18px;align-items:center;flex-wrap:wrap}
+    .avatar{
+      width:140px;height:140px;border-radius:50%;background:linear-gradient(180deg, rgba(88,166,255,0.08), rgba(34,211,238,0.02));
+      border:6px solid rgba(255,255,255,0.04); display:inline-block;
+      box-shadow: 0 10px 30px rgba(88,166,255,0.06);
+      object-fit:cover;
+    }
+    .pill{ display:inline-block;padding:8px 12px;border-radius:999px;background:rgba(88,166,255,0.06); color:var(--accent); font-weight:700; border:1px solid rgba(88,166,255,0.08) }
+
+    .box{ background: linear-gradient(180deg, rgba(88,166,255,0.02), rgba(34,211,238,0.01)); padding:12px; border-radius:10px; border-left:4px solid rgba(88,166,255,0.16); color:var(--muted) }
+
+    h2,h3{ color:#eaf4ff; margin:6px 0 10px 0 }
+    p, li { color: var(--muted); line-height:1.45 }
+    ul { margin:6px 0 0 18px }
+
+    footer{ text-align:center; margin-top:28px; color:var(--muted) }
+
+    /* focus outline */
+    a:focus, button:focus { outline: 3px solid rgba(88,166,255,0.12); outline-offset:4px; border-radius:8px }
+
+    /* subtle neon accent under headings */
+    .accent-line{ height:4px; background: linear-gradient(90deg, rgba(88,166,255,0.9), rgba(34,211,238,0.8)); border-radius:6px; margin-bottom:10px; width:140px }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+
+    <nav class="nav" role="navigation" aria-label="Main navigation">
+      <a class="primary" data-page="about" role="button" tabindex="0">About</a>
+      <a data-page="education" role="button" tabindex="0">Education</a>
+      <a data-page="projects" role="button" tabindex="0">Projects</a>
+      <a data-page="hobbies" role="button" tabindex="0">Hobbies</a>
+      <a data-page="skills" role="button" tabindex="0">Skills</a>
+      <a data-page="achievements" role="button" tabindex="0">Achievements</a>
+      <a data-page="contact" role="button" tabindex="0">Contact</a>
+    </nav>
+
+    <header class="hero" role="banner" aria-labelledby="hero-title">
+      <h1 id="hero-title">Shivam — B.E. (Electrical)</h1>
+      <div style="height:8px"></div>
+      <p>Practical engineering and operations — four years of independent leadership running a family flour mill. Core strengths in process discipline, circuit fundamentals and problem solving.</p>
+    </header>
+
+    <main>
+      <div class="grid" role="main">
+        <!-- About -->
+        <section class="card" aria-labelledby="about-h">
+          <h2 id="about-h">About — Professional Summary</h2>
+          <div class="accent-line" aria-hidden="true"></div>
+          <div class="media">
+            <!-- If you add a photo later, put <img src="photo.jpg" class="avatar" alt="Shivam Subhash Devre"> -->
+            <div class="avatar" aria-hidden="true" title="Profile (add photo.jpg to replace)"></div>
+            <div>
+              <p><strong style="color:#eaf4ff">Shivam Subhash Devre</strong> — Electrical Engineering undergraduate at Sanjivani College. Independently managed the family flour mill for four years: procurement, production planning, inventory, billing and maintenance coordination. I focus on measurable improvements, clear documentation, and disciplined execution.</p>
+
+              <div class="box" role="region" aria-label="Core strengths">
+                <strong style="color:#eaf4ff">Core strengths</strong>
+                <ul>
+                  <li>Operational leadership: scheduling, procurement, vendor management</li>
+                  <li>Engineering fundamentals: circuit analysis, applied mathematics</li>
+                  <li>Structured problem solving and technical documentation</li>
+                  <li>AI & prompt engineering: iterative workflows and rapid prototyping</li>
+                </ul>
+              </div>
+
+              <div style="margin-top:12px;display:flex;gap:8px;flex-wrap:wrap">
+                <span class="pill">Operations</span>
+                <span class="pill">Circuit Theory</span>
+                <span class="pill">Mathematics</span>
+                <span class="pill">Prompt Mania Winner</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Education -->
+        <section class="card" aria-labelledby="edu-h">
+          <h2 id="edu-h">Education</h2>
+          <div class="accent-line" aria-hidden="true"></div>
+
+          <h3 style="margin-top:6px">Sanjivani College of Engineering — B.E. (Electrical)</h3>
+          <p>Practical, lab-centered curriculum: circuit analysis, power systems and control systems.</p>
+          <div class="box" style="margin-top:8px">
+            <strong>Key Subjects</strong>
+            <ul>
+              <li>Circuit Theory</li>
+              <li>Power Systems</li>
+              <li>Control Systems</li>
+            </ul>
+          </div>
+
+          <h3 style="margin-top:14px">Bharat Ratna Mother Teresa English School, Gangapur</h3>
+          <p>Grades 5–10. Strong foundation in Mathematics and Logical Reasoning.</p>
+          <div class="box" style="margin-top:8px">
+            <strong>Academic Highlights</strong>
+            <ul>
+              <li>Analytical and numerical reasoning</li>
+              <li>Disciplined study habits</li>
+              <li>Active participation in academic activities</li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- Projects -->
+        <section class="card" aria-labelledby="proj-h">
+          <h2 id="proj-h">Projects & Practical Work</h2>
+          <div class="accent-line" aria-hidden="true"></div>
+
+          <h3>Flour Mill — End-to-end Operations</h3>
+          <p>Four years of hands-on operations management: procurement, scheduling, inventory, billing and maintenance coordination.</p>
+          <div class="box" style="margin-top:8px">
+            <strong>Operational successes</strong>
+            <ul>
+              <li>Reduced raw material waste through optimized procurement</li>
+              <li>Improved billing accuracy with organized record-keeping</li>
+              <li>Lowered downtime using preventive maintenance planning</li>
+            </ul>
+          </div>
+
+          <h3 style="margin-top:12px">Invoice & Billing Tool (Web)</h3>
+          <p>Offline-first invoice utility built with HTML/CSS/JS for small retailers (print-friendly, CSV export).</p>
+
+          <h3 style="margin-top:12px">Engineering Utilities (Python)</h3>
+          <p>Simple scripts to automate electrical calculations (impedance, PF correction) used during lab work and projects.</p>
+        </section>
+
+        <!-- Hobbies -->
+        <section class="card" aria-labelledby="hobby-h">
+          <h2 id="hobby-h">Hobbies & Interests</h2>
+          <div class="accent-line" aria-hidden="true"></div>
+
+          <h3>Cricket</h3>
+          <p>Active cricket player — teamwork, discipline and quick decision-making under pressure.</p>
+
+          <h3 style="margin-top:10px">AI & Prompt Engineering</h3>
+          <p>Experiment with LLMs to produce structured, repeatable technical documentation and prototypes.</p>
+          <div class="box" style="margin-top:8px">
+            <strong>Achievement</strong>
+            <p>Winner — Prompt Mania competition (local).</p>
+          </div>
+
+          <h3 style="margin-top:10px">Mathematics & Puzzles</h3>
+          <p>Keeps analytical thinking and numerical speed sharp — useful for diagnostics and lab calculations.</p>
+        </section>
+
+        <!-- Skills -->
+        <section class="card" aria-labelledby="skills-h">
+          <h2 id="skills-h">Skills</h2>
+          <div class="accent-line" aria-hidden="true"></div>
+
+          <h3>Technical</h3>
+          <ul>
+            <li>Circuit analysis & troubleshooting (AC/DC)</li>
+            <li>Applied mathematics (calculus / linear algebra)</li>
+            <li>Basic web dev (HTML/CSS/JS)</li>
+            <li>Intro CAD & circuit simulation</li>
+          </ul>
+
+          <h3 style="margin-top:10px">Professional</h3>
+          <ul>
+            <li>Operations management & procurement</li>
+            <li>Process documentation & SOPs</li>
+            <li>Team & vendor coordination</li>
+            <li>Prompt engineering for documentation</li>
+          </ul>
+        </section>
+
+        <!-- Achievements & Contact grouped (one column on narrow screens) -->
+        <div style="display:grid;grid-template-columns:1fr;gap:18px">
+          <section class="card" aria-labelledby="ach-h">
+            <h2 id="ach-h">Achievements</h2>
+            <div class="accent-line" aria-hidden="true"></div>
+            <div class="box">
+              <ul>
+                <li>Top performer in core electrical subjects</li>
+                <li>Winner — Prompt Mania Competition</li>
+                <li>Recognized for operational improvements at family mill</li>
+              </ul>
+            </div>
+          </section>
+
+          <section class="card" aria-labelledby="contact-h">
+            <h2 id="contact-h">Contact</h2>
+            <div class="accent-line" aria-hidden="true"></div>
+            <p style="color:var(--muted)">Open to internships and field engineering roles. Replace placeholders below with your real details before sharing.</p>
+            <div class="box">
+              <ul>
+                <li><strong>Email:</strong> your.email@example.com</li>
+                <li><strong>Phone:</strong> +91-XXXXXXXXXX</li>
+                <li><strong>LinkedIn:</strong> linkedin.com/in/yourprofile</li>
+              </ul>
+            </div>
+          </section>
+        </div>
+
+      </div>
+    </main>
+
+    <footer>
+      <p>© Shivam — Professional Portfolio</p>
+    </footer>
+
+  </div>
+
+  <script>
+  /*
+    Small script: clicking items with data-page opens a detail page in a new tab (Blob URL).
+    Keeps the UI simple but allows separate detail pages for each section.
+    You can remove this entire script if you don't want that behavior.
+  */
+  (function(){
+    const GRAD_YEAR = '202X';
+
+    const pageTemplate = (title, bodyHtml)=>`<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${title}</title>
+      <style>
+        body{font-family:Inter,system-ui,Segoe UI,Roboto,Arial;margin:18px;background:#071024;color:#e8f6ff}
+        .wrap{max-width:900px;margin:28px auto}
+        h1{color:#58a6ff}
+        .section{background:rgba(255,255,255,0.02);padding:18px;border-radius:12px;margin-bottom:12px}
+        .box{background:rgba(88,166,255,0.02);padding:12px;border-left:4px solid rgba(88,166,255,0.16);border-radius:8px}
+        a{color:#58a6ff}
+      </style></head><body><div class="wrap"><button onclick="window.close()" style="padding:8px 12px;background:#58a6ff;color:#041025;border:0;border-radius:8px;font-weight:700;cursor:pointer">&larr; Back</button>${bodyHtml}</div></body></html>`;
+
+    const pages = {
+      about: pageTemplate('About — Shivam', `<div class="section"><h1>About — Shivam</h1><p><strong>Shivam Subhash Devre</strong> — B.E. (Electrical). Independently managed the family flour mill for four years: procurement, production planning, inventory, billing and maintenance coordination. I focus on measurable improvements, documentation and disciplined execution.</p></div><div class="section"><h2>Professional highlights</h2><div class="box"><ul><li>Procurement & vendor management</li><li>Production planning & inventory control</li><li>Billing & basic accounting</li><li>Maintenance coordination & troubleshooting</li></ul></div></div>`),
+      education: pageTemplate('Education — Shivam', `<div class="section"><h1>Education</h1><p><strong>Sanjivani College of Engineering — B.E. (Electrical)</strong><br/>Practical, lab-centered curriculum focused on circuits, power systems and control.</p></div><div class="section"><h2>School</h2><p><strong>Bharat Ratna Mother Teresa English School, Gangapur</strong><br/>Grades 5–10; strong foundation in Mathematics & logical reasoning.</p></div>`),
+      projects: pageTemplate('Projects — Shivam', `<div class="section"><h1>Projects</h1><h3>Flour Mill — End-to-End Operations</h3><div class="box"><ul><li>Inventory optimization</li><li>Billing accuracy improvement</li><li>Downtime reduction (preventive maintenance)</li></ul></div></div><div class="section"><h3>Invoice Tool & Python utilities</h3><p>Offline invoice generator + small Python scripts for electrical calculations.</p></div>`),
+      hobbies: pageTemplate('Hobbies — Shivam', `<div class="section"><h1>Hobbies</h1><h3>Cricket</h3><p>Teamwork, discipline and decision-making under pressure.</p><h3>AI & Prompt Engineering</h3><p>Prototyping documentation & workflows with LLMs. Winner — Prompt Mania.</p></div>`),
+      skills: pageTemplate('Skills — Shivam', `<div class="section"><h1>Skills</h1><div class="box"><ul><li>Circuit analysis & troubleshooting</li><li>Applied mathematics</li><li>Basic web dev (HTML/CSS/JS)</li><li>Process documentation & operations</li></ul></div></div>`),
+      achievements: pageTemplate('Achievements — Shivam', `<div class="section"><h1>Achievements</h1><div class="box"><ul><li>Top performer in core electrical subjects</li><li>Winner — Prompt Mania</li><li>Operational improvements at family mill</li></ul></div></div>`),
+      contact: pageTemplate('Contact — Shivam', `<div class="section"><h1>Contact</h1><div class="box"><ul><li>Email: your.email@example.com</li><li>Phone: +91-XXXXXXXXXX</li><li>LinkedIn: linkedin.com/in/yourprofile</li></ul></div></div>`)
+    };
+
+    function createBlobWindow(html){
+      const blob = new Blob([html], {type: 'text/html'});
+      const url = URL.createObjectURL(blob);
+      window.open(url, '_blank');
+      setTimeout(()=> URL.revokeObjectURL(url), 20000);
+    }
+
+    function handleClick(evt){
+      const el = evt.currentTarget;
+      const page = el.getAttribute('data-page');
+      if(page && pages[page]) createBlobWindow(pages[page]);
+    }
+
+    const navables = document.querySelectorAll('[data-page]');
+    navables.forEach(el=>{
+      el.addEventListener('click', handleClick);
+      el.addEventListener('keydown', e=>{
+        if(e.key === 'Enter' || e.key === ' ') { e.preventDefault(); handleClick({currentTarget: el}); }
+      });
+    });
+  })();
+  </script>
+</body>
+</html>
